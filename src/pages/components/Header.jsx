@@ -40,6 +40,11 @@ function Header() {
 						REDIRECT
 					</Link>
 				</li>
+				<li>
+					<Link href='/csr' className={currentPath === '/csr' ? styles.on : ''}>
+						CSR
+					</Link>
+				</li>
 			</ul>
 		</header>
 	);

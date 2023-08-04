@@ -35,6 +35,11 @@ function Header() {
 						POST
 					</Link>
 				</li>
+				<li>
+					<Link href='/redirect' className={currentPath === '/redirect' ? styles.on : ''}>
+						REDIRECT
+					</Link>
+				</li>
 			</ul>
 		</header>
 	);

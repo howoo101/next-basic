@@ -12,6 +12,7 @@ function ssg(props) {
 
 export async function getStaticProps() {
 	console.log('ssg');
+	//해당 프로젝트를 빌드시에 한번만 호출
 	return {
 		props: { now: performance.now() },
 	};

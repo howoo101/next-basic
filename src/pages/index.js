@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.scss';
+import styles from '@/src/styles/Home.module.scss';
 import Header from './components/Header';
+import pic from '@/public/img/pic.jpg';
+import Image from 'next/image';
 
 export default function Home() {
 	return (
@@ -14,6 +16,9 @@ export default function Home() {
 			<main className={styles.main}>
 				<Header />
 				<h1>Main</h1>
+				<div className={styles.pic}>
+					<Image src={pic} alt='pic' fill quality={50} />
+				</div>
 			</main>
 		</>
 	);

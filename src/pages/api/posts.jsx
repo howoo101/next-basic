@@ -4,9 +4,18 @@ import { Counter } from '@/src/model/CounterSchema';
 
 //안쪽에서 await로 동기화 처리할 예정이므로 wrapping함수에 async지정
 export default async function handler(req, res) {
-	const temp = req.body;
-
+	//전달된 요청이 GET일떄 처리 (글 호출)
+	if (req.method === 'GET') {
+		try {
+			await connectMongoDB();
+			const community = await Community.find();
+			res.status(200).send(community);
+		} catch (err) {
+			res.status(400).send({ err });
+		}
+	}
 	if (req.method === 'POST') {
+		const temp = req.body;
 		try {
 			await connectMongoDB();
 			Counter.findOne({ name: 'counter' })

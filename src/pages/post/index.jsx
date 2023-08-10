@@ -12,9 +12,9 @@ function Post() {
 			title: title,
 			content: content,
 		};
-		console.log(item);
+
 		axios
-			.post('/api/post', item)
+			.post('/api/posts', item)
 			.then((res) => {
 				console.log(res);
 				alert('글 저장 성공');
@@ -25,7 +25,14 @@ function Post() {
 			});
 	};
 
-	useEffect(() => {});
+	useEffect(() => {
+		axios
+			.get('/api/posts')
+			.then((json) => {
+				console.log('get', json.data);
+			})
+			.catch((err) => console.log(err));
+	}, []);
 
 	return (
 		<Sublayout name={'POST'}>

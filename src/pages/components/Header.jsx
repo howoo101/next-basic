@@ -2,6 +2,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './Header.module.scss';
 import { Orbitron } from 'next/font/google';
+import { FaAirbnb } from 'react-icons/fa6';
+//npm i react-icons 설치후
+//https://react-icons.github.io/react-icons에서 활용할 아이콘 컴포넌트 import문과 아이콘명 확인
+import { IconContext } from 'react-icons';
 // 구글 웹폰트 시스템이 내장되어 있음
 //next자체적으로 구글웹폰트의 용량을 최적화 시켜서 페이지에 적용
 //비구조화할당으로 원하는 폰트 객체를 import
@@ -21,6 +25,7 @@ function Header() {
 			<h1>
 				<Link href='/' className={currentPath === '/' ? styles.on : ''}>
 					Logo
+					<FaAirbnb />
 				</Link>
 			</h1>
 

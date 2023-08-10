@@ -10,22 +10,6 @@ import { useEffect, useRef, useState } from 'react';
 //api폴더 안쪽의 파일명이 라우터 요청명으로 자동설정됨 /api/hello
 
 export default function Home() {
-	//서버쪽에서 프리렌더된 페이지를 가지고온 이후에
-	//클라이언트쪽에서 다시 서버쪽 요청가능
-	//next자체적으로 서버쪽 요청, 응답처리
-
-	fetch('/api/hello')
-		.then((response) => response.json())
-		.then((json) => console.log(json));
-
-	useEffect(() => {
-		fetch('/api/hello', {
-			method: 'POST',
-			body: 'ABC',
-		})
-			.then((res) => res.json())
-			.then((json) => console.log(json));
-	});
 	return (
 		<>
 			<Head>

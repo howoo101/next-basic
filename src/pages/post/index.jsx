@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import Sublayout from '../components/Sublayout';
 import axios from 'axios';
+import { useGlobalData } from '@/src/hooks/useGlobalContext';
 
 function Post() {
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
+	const { LoginInfo } = useGlobalData();
 
+	console.log(LoginInfo);
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const item = {

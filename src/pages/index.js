@@ -4,12 +4,15 @@ import Header from './components/Header';
 import pic from '@/public/img/pic.jpg';
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
+import { useGlobalData } from '../hooks/useGlobalContext';
 
 //api 라우팅 (서버요청 처리를 위해서는 express라는 프레임웍을 활용)
 //next에서는 api폴더 안쪽에 서버쪽 요청 및 응답에대한 라우팅 설정가능
 //api폴더 안쪽의 파일명이 라우터 요청명으로 자동설정됨 /api/hello
 
 export default function Home() {
+	const data = useGlobalData();
+	console.log(data);
 	return (
 		<>
 			<Head>

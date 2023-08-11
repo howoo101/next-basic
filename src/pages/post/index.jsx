@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Sublayout from '../components/Sublayout';
 import axios from 'axios';
 import { useGlobalData } from '@/src/hooks/useGlobalContext';
+import Login from '../components/Login';
 
 function Post() {
 	const [title, setTitle] = useState('');
@@ -40,7 +41,7 @@ function Post() {
 	return (
 		<Sublayout name={'POST'}>
 			<p>포스트페이지 인트로 화면입니다.</p>
-
+			<Login />
 			<div className='inputBox'>
 				<form onSubmit={handleSubmit}>
 					<input type='text' placeholder='입력해라 제목' value={title} onChange={(e) => setTitle(e.target.value)} />

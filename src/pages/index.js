@@ -11,7 +11,7 @@ import firebase from '../firebase';
 //api폴더 안쪽의 파일명이 라우터 요청명으로 자동설정됨 /api/hello
 
 export default function Home() {
-	const { setLoginInfo } = useGlobalData();
+	const { LoginInfo, setLoginInfo } = useGlobalData();
 
 	useEffect(() => {
 		//시작 페이지 접속시 firebase로 현재 로그인 상태값이 변경되면
@@ -20,6 +20,7 @@ export default function Home() {
 			if (userInfo === null) setLoginInfo({ displayName: '', uid: '' });
 			//값이 있으면 (로그인) firebase로 받은 유저정보값을 전역 스테이트에 덮어쓰기
 			else setLoginInfo(userInfo.multiFactor.user);
+			console.log(userInfo);
 		});
 	}, [setLoginInfo]);
 	return (
@@ -33,7 +34,14 @@ export default function Home() {
 			<main className={styles.main}>
 				<Header />
 				<h1>Main</h1>
-
+				<button
+					onClick={() => {
+						firebase.auth().signOut();
+						alert('로그아웃 되었습니다.');
+					}}
+				>
+					로그아웃
+				</button>
 				<div className={styles.pic}>
 					<Image src={pic} alt='pic' placeholder='blur' fill quality={50} />
 				</div>
